@@ -38,7 +38,7 @@ while selected_stock != '':
         return data
 
 
-    st.subheader('Raw Data for ' + selected_stock + ' ' + cname)
+    st.subheader('Raw Data for ' + selected_stock)
     data_load_state = st.text("Load data...")
     data = load_data(selected_stock)
     data_load_state.text = ("Loading data...done!")
@@ -63,7 +63,7 @@ while selected_stock != '':
     m.fit(df_train)
     future = m.make_future_dataframe(periods=period)
     forecast = m.predict(future)
-    st.subheader('Forecast Data for ' + selected_stock + ' ' + cname)
+    st.subheader('Forecast Data for ' + selected_stock)
     st.write(forecast.tail())
     st.write('forecast data')
     fig1 = plot_plotly(m, forecast)
